@@ -31,7 +31,7 @@ public class BrowserTest {
      * For CLI: System.getProperty("mobile.driver")
      *
      * */
-    @DataProvider(name = "dp", parallel=true)
+    @DataProvider(name = "dp", parallel=false)
     public Iterator<AppiumDriver> appiumDriverDataProvider() throws MalformedURLException {
         final String url = String.format("%s:%s/wd/hub", System.getProperty("appium.uri"), System.getProperty("appium.port"));
 
@@ -40,7 +40,7 @@ public class BrowserTest {
 
     @Test(dataProvider = "dp")
     public void titleValidationTest(AppiumDriver ad) {
-        final WebDriverWait wait = new WebDriverWait(ad, Duration.ofSeconds(10L));
+        final WebDriverWait wait = new WebDriverWait(ad, Duration.ofSeconds(60L));
 
         ad.get("https://fiber.google.com");
         wait.until(ExpectedConditions.titleContains("Google Fiber"));

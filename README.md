@@ -20,8 +20,15 @@ Make sure you have installed on your operating system:<br/>
 `$> npm install appium-doctor -g ` <br/>
 
 ### Verification
-`$> appium-doctor --ios ` <br/>
+
 `$> appium-doctor --android ` <br/>
+`$> adb devices ` -> Android. List of devices attached.<br/>
+`$> emulator -list-avds`
+
+`$> appium-doctor --ios ` <br/>
+`$> xcrun xctrace list devices ` -> iOS. List of devices attached.<br/>
+
+
 
 ## Environment variables (_.bash_profile_)
 ```bash
