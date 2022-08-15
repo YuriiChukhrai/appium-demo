@@ -1,0 +1,11 @@
+{
+  "caps": {
+    "appium:app": "/Users/yuric/Documents/work-space/appium-demo/./src/main/resources/artifacts/GoogleFiber_v2.1.3.apk",
+    "appium:appPackage": "com.google.android.apps.fiber.myfiber",
+    "appium:automationName": "UIAutomator2",
+    "appium:deviceName": "Pixel 3",
+    "appium:fullReset": true,
+    "appium:newCommandTimeout": 10.0,
+    "platformName": "ANDROID"
+  }
+}

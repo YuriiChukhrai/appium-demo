@@ -24,6 +24,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Objects;
 
+import static com.yc.qa.mobile.utils.Utils.makeScreenShot;
+
 @Log
 public class BrowserTest {
 
@@ -38,7 +40,7 @@ public class BrowserTest {
         return new ArrayList<AppiumDriver>(Arrays.asList(AppiumDriverFactory.getAppiumDriver("ios", url), AppiumDriverFactory.getAppiumDriver("android", url))).iterator();
     }
 
-    @Test(dataProvider = "dp")
+    @Test(enabled = false, dataProvider = "dp")
     public void titleValidationTest(AppiumDriver ad) {
         final WebDriverWait wait = new WebDriverWait(ad, Duration.ofSeconds(60L));
 
@@ -71,11 +73,5 @@ public class BrowserTest {
         if(Objects.nonNull(ad)){
             ad.quit();
         }
-    }
-
-    @Attachment(value = "{0}", type = "image/png")
-    public static byte[] makeScreenShot(final String attachmentName, final AppiumDriver ad) {
-        final byte[] rawImage = ((TakesScreenshot) ad).getScreenshotAs(OutputType.BYTES);
-        return rawImage;
     }
 }

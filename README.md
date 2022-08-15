@@ -9,6 +9,7 @@ Make sure you have installed on your operating system:<br/>
 4. [Xcode](https://developer.apple.com/xcode/)
 5. [Android Studio](https://developer.android.com/studio)
 6. [Appium](https://appium.io/)
+7. [Appium Inspector](https://github.com/appium/appium-inspector)
 
 
 ## Appium installation
