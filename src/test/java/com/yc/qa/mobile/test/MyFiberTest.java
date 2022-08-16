@@ -10,6 +10,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
+import io.qameta.allure.*;
 import lombok.extern.java.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -129,6 +130,17 @@ public class MyFiberTest {
         }
     }
 
+    @Features({ @Feature("Appium"), @Feature("Android") })
+    @Issues({ @Issue("GA-001"), @Issue("OLA-002") })
+    @Stories({ @Story("Stories: CIR-098"), @Story("Stories: CIR-099") })
+    @Epics({ @Epic("Epic03"), @Epic("Epic04") })
+    @TmsLinks({ @TmsLink("1234"), @TmsLink("4321") })
+    @Links({ @Link(url="https://github.com/YuriiChukhrai/appium-demo", name="GitHub"), @Link(url="https://www.linkedin.com/in/yurii-c-b55aa6174/", name="LinkedIn") })
+    @Lead("Yurii Chukhrai")
+    @Flaky
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Title assertion")
+    @Owner("Yurii Chukhrai")
     @Test
     public void openMyFiberTest(){
         String welcomeText = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[contains(@content-desc,'Google Fiber')]"))).getAttribute("content-desc");
