@@ -5,14 +5,14 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Objects;
 
-@Log
+@Slf4j
 public final class AppiumDriverFactory {
     private AppiumDriverFactory() {
         throw new UnsupportedOperationException("Illegal access to private constructor");

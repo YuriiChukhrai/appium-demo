@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration packages="com.epam.ta.reportportal.log4j.appender">
+    <properties>
+        <property name="LOG_PATTERN">
+            <!--            %d{yyyy-MM-dd HH:mm:ss.SSS} - %-5level TI="%tid" TP="%tp" - %logger{36}.%tn -> %msg%n-->
+            <!--            %d{yyyy-MM-dd HH:mm:ss} %-5p- %m%n-->
+            <!--            [%d{HH:mm:ss}] %-5p(%F:%L) - %m%n-->
+            [%d{yyyy-MM-dd HH:mm:ss.SSS}] TI [%tid] %-5p (%logger{36}:%L) - %m%n
+        </property>
+    </properties>
+    <appenders>
+        <rollingFile name="RollingName" filename="logs/appium-demo.log"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log">
+            <patternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </patternLayout>
+            <policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </policies>
+        </rollingFile>
+
+        <console name="Console" target="SYSTEM_OUT">
+            <patternLayout pattern="${LOG_PATTERN}"/>
+        </console>
+
+    </appenders>
+    <loggers>
+        <!--    <Logger name="com.ua.qa" level="info">-->
+        <!--        <AppenderRef ref="Console"/>-->
+        <!--    </Logger>-->
+        <root level="info">
+            <appender-ref ref="RollingName"/>
+            <appender-ref ref="Console"/>
+<!--            <appender-ref ref="ReportPortalAppender"/>-->
+        </root>
+<!--        <logger name="com.zaxxer.hikari.HikariConfig" level="debug" />-->
+
+    </loggers>
+</configuration>
+
+

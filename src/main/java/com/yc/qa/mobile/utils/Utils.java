@@ -2,21 +2,19 @@ package com.yc.qa.mobile.utils;
 
 import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Attachment;
-import io.qameta.allure.Step;
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import java.util.Objects;
 
-@Log
+@Slf4j
 public final class Utils {
     private Utils() {
         throw new UnsupportedOperationException("Illegal access to private constructor");
     }
 
     @Attachment(value = "{0}", type = "image/png")
-    @Step("Make makeScreenshot [{0}]")
     public static byte[] makeScreenShot(final String fileName, final AppiumDriver appiumDriver) {
 
         if(Objects.nonNull(appiumDriver)){
@@ -27,7 +25,6 @@ public final class Utils {
 
     /* This method make Text attachment for Allure report */
     @Attachment(value = "{0}", type = "text/plain")
-    @Step("Add attachment [{0}] to report")
     public static synchronized String attachText(final String nameOfAttachment, final String bodyOfMessage) {
 
         log.info(String.format("TID [%d] - Attached to allure file [%s].", Thread.currentThread().getId(),
